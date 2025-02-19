@@ -63,7 +63,7 @@ bindsym $mod+Shift+p exec ~/.config/rofi/powermenu
 
 # Custom Scripts
 bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/screenshot.sh
-bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/ns.py
+bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/note_selector.py
 bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/dm.sh
 
 # change focus

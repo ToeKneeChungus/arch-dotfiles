@@ -9,11 +9,11 @@ import i3ipc
 import signal 
 
 
-notes_directory = Path("/home/toekneechungus/Documents/school")
+notes_directory = Path("/home/toekneechungus/notes")
 
 def cn():
     notes = [f.name for f in notes_directory.glob("*")]
-    ignore = ['template']
+    ignore = ['template', '.git', '.DS_Store','preamble.tex']
     for i in ignore:
         notes.remove(i)
     rofi_input = "\n".join(notes)
@@ -21,7 +21,7 @@ def cn():
     output = result.stdout.strip()
     return(output)
 
-
+'''
 def text(text_dir):
     text_directory = Path("/home/toekneechungus/Documents/textbooks/"+text_dir)
     text= [f.name for f in text_directory.glob("*.pdf")]
@@ -29,13 +29,12 @@ def text(text_dir):
     result = subprocess.run(['rofi','-dmenu','-p','Select textbook title: '],input=rofi_input, capture_output=True, text=True)
     output = result.stdout.strip()
     return(output)
-
-
+'''
 
 
 def opennvim(directory):
     os.chdir(directory)        
-    command = f"alacritty -e nvim master.tex"
+    command = f"kitty -e nvim master.tex"
     # Run the command to open Neovim in a new Alacritty window
     subprocess.Popen(command, shell=True)
 
@@ -54,16 +53,7 @@ name = cn()
 if name=="":
     sys.exit("Error Message")
 else:
-    td = text_dir()
-    if td=="":
-        #layout with vim zathura
-        ranoutofvar = Path("/home/toekneechungus/Documents/notes/"+name)
-        opennvim(ranoutofvar)
-        opennote(ranoutofvar)
-    else:
-        title = text(td).replace(" ",r"\ ")
-        tbpath = Path("/home/toekneechungus/Documents/textbooks/"+td)
-        morevar = Path("/home/toekneechungus/Documents/notes/"+name)
-        opennote(morevar)
-        opennvim(morevar)
-        opentext(tbpath,title)
+    #layout with vim zathura
+    ranoutofvar = Path("/home/toekneechungus/notes/"+name+"/notes")
+    opennote(ranoutofvar)
+    opennvim(ranoutofvar)
