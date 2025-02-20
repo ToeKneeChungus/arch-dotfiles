@@ -21,7 +21,7 @@ r = Rofi()
 name = r.text_entry("Figure Name: ")
 if (r == ""):
     exit(0)
-bashCommand = "maim -s ~/Documents/school/"+p+"/notes/figures/"+name+".png"
+bashCommand = "maim -s ~/notes/"+p+"/notes/figures/"+name+".png"
 os.system(bashCommand) #take screenshot and insert it to figures folder 
 
 
