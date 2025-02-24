@@ -16,7 +16,7 @@ gaps outer 5
 exec --no-startup-id picom
 exec --no-startup-id dunst
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
-exec_always feh --bg-scale ~/.config/i3/wallpaper/4.jpg 
+exec_always feh --bg-scale ~/.config/i3/wallpaper/stars.jpg 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id fcitx5
 
