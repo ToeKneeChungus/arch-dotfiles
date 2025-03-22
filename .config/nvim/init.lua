@@ -41,6 +41,8 @@ require("lazy").setup("plugins")
 
 -- custom script
 vim.keymap.set('n', '<leader>p', ":w | :let ln = line('.') | :let filepath = expand('%:p') | :let cmd = 'python3 ~/.config/nvim/screenshot.py ' . filepath . ' ' . ln | :execute '!' . cmd <CR>", {silent= true})
+
+vim.keymap.set('n', '<leader>m', ":w | :let ln = line('.') | :let filepath = expand('%:p') | :let cmd = 'python3 ~/.config/nvim/mask.py ' . filepath . ' ' . ln | :execute '!' . cmd <CR>", {silent= true})
 vim.keymap.set('n', '<leader>f', ":w | :let ln = line('.') | :let filepath = expand('%:p') | :let cmd = 'python3 ~/.config/nvim/fig.py ' . filepath . ' ' . ln | :execute '!' . cmd <CR>", {silent= true})
 
 

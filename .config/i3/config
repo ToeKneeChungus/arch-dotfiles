@@ -51,8 +51,10 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec kitty
 
+
 # kill focused window
 bindsym $mod+Shift+q kill
+
 
 # Rofi Scripts
 bindsym $mod+space exec --no-startup-id rofi -show drun
@@ -65,6 +67,10 @@ bindsym $mod+Shift+p exec ~/.config/rofi/powermenu
 bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/screenshot.sh
 bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/note_selector.py
 bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/dm.sh
+
+
+
+
 
 # change focus
 bindsym $mod+j focus left
@@ -148,6 +154,14 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+#always float windows 
+for_window [class="kakaotalk"] floating enable
+for_window [class="Thunar"] floating enable
+for_window [title="ranger"] floating enable, resize set 1000 600, move position center
+for_window [class="Inkscape"] floating enable
+
+assign [class="TickTick"] $ws7
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym j resize shrink width 5 px or 5 ppt
@@ -209,6 +223,4 @@ client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
 client.background        $base
 
 
-for_window [class="Inkscape"] floating enable
-assign [class="Ticktick"] $ws7
 
