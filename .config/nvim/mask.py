@@ -39,9 +39,11 @@ lower_bound = np.array([0, 0, 200], dtype=np.uint8)  # Light colors (white)
 upper_bound = np.array([180, 50, 255], dtype=np.uint8)
 mask = cv2.inRange(hsv, lower_bound, upper_bound)
 mask_inv = cv2.bitwise_not(mask)
-r, g, b = cv2.split(image)
+
+image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+b, g, r = cv2.split(image)
 alpha = mask_inv  # Use the inverted mask as alpha channel
-transparent_image = cv2.merge([r, g, b, alpha])
+transparent_image = cv2.merge([b, g, r, alpha])
 # Save the transparent image
 cv2.imwrite(imgpath, transparent_image)
 
